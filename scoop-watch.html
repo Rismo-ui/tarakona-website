@@ -9,6 +9,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Scoop Watch page palette — pulled directly from the app's own colors
+     rather than the parent Tarakona Ember palette: the app's actual dark-navy
+     background, its cream action/button color, and the exact green (#5fbf78)
+     it uses for a "fresh/clean" status. */
+  :root {
+    --obsidian: #12171a;
+    --panel: #1b2227;
+    --panel-2: #212a30;
+    --border: rgba(239, 230, 204, 0.10);
+    --border-strong: rgba(95, 191, 120, 0.38);
+    --bronze: #efe6cc;
+    --bronze-bright: #f6efd8;
+    --oxblood: #5fbf78;
+    --parchment: #eef1ea;
+    --muted: #96a08c;
+  }
+  .btn-primary { color: #16211a !important; }
+  .roadmap-item.done .roadmap-num { color: #16211a !important; }
+</style>
 </head>
 <body>
 
@@ -21,7 +41,6 @@
     <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="scoop-watch.html" class="active">Scoop Watch</a>
       <a href="privacy.html">Privacy</a>
     </div>
   </div>
