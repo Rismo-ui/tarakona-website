@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visions — Tarakona Industries</title>
+<meta name="description" content="Where Tarakona Industries is growing — what's in motion, and what's just budding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Visions page palette — Slate & Verdigris, distinct from both the Ember
+     parent brand and Scoop Watch's own navy palette. Reserved for this page. */
+  :root {
+    --obsidian: #0d1416;
+    --panel: #142020;
+    --panel-2: #1a2827;
+    --border: rgba(232, 240, 238, 0.1);
+    --border-strong: rgba(107, 201, 189, 0.35);
+    --bronze: #6bc9bd;
+    --bronze-bright: #8adfd3;
+    --oxblood: #3a5f5a;
+    --parchment: #e8f0ee;
+    --muted: #8fa39d;
+  }
+  body { font-family: 'Inter', sans-serif; }
+  .vision-hero { text-align: center; padding: 70px 28px 40px; }
+  .vision-hero h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(2rem, 4.5vw, 3rem); }
+  .vision-hero p { color: var(--muted); max-width: 50ch; margin: 18px auto 0; font-size: 1.05rem; }
+
+  .tree-wrap { max-width: 900px; margin: 0 auto; padding: 10px 28px 90px; position: relative; }
+  .trunk-svg { position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 0; pointer-events: none; }
+  .section { position: relative; z-index: 1; }
+
+  .foundation { display: flex; justify-content: center; padding-top: 10px; margin-bottom: 70px; }
+  .root-card {
+    background: var(--panel-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 18px;
+    padding: 30px 36px;
+    max-width: 440px;
+    text-align: center;
+  }
+  .root-card .tag { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bronze-bright); font-weight: 700; }
+  .root-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; margin: 12px 0 10px; }
+  .root-card p { font-size: 0.92rem; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  .branch-label {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--bronze-bright);
+    background: var(--obsidian);
+    display: inline-block;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .motion-label { font-size: 1rem; padding: 10px 24px; margin-bottom: 55px; }
+  .motion-branches { display: flex; justify-content: center; gap: 70px; flex-wrap: wrap; margin-bottom: 80px; }
+  .motion-node { position: relative; width: 280px; }
+  .motion-node svg.connector { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); overflow: visible; }
+  .node-card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 8px; background: var(--bronze-bright); box-shadow: 0 0 8px var(--bronze-bright); }
+  .node-status { font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bronze-bright); display: flex; align-items: center; margin-bottom: 10px; font-weight: 600; }
+  .node-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; margin-bottom: 8px; }
+  .node-card p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+  .budding-label { font-size: 0.85rem; padding: 7px 18px; margin-bottom: 40px; opacity: 0.9; }
+  .budding-branches { display: flex; justify-content: center; gap: 46px; flex-wrap: wrap; }
+  .bud-node { position: relative; width: 190px; }
+  .bud-node svg.connector { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); overflow: visible; }
+  .bud-card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .bud-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; margin-right: 6px; background: var(--muted); }
+  .bud-status { font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; margin-bottom: 6px; }
+  .bud-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.94rem; margin-bottom: 5px; font-weight: 600; }
+  .bud-card p { font-size: 0.76rem; color: var(--muted); margin: 0; line-height: 1.4; }
+
+  @media (max-width: 640px) {
+    .motion-branches, .budding-branches { gap: 34px; }
+    .motion-node { width: 100%; max-width: 320px; }
+    .bud-node { width: 100%; max-width: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="assets/wing-flame-icon.png" alt="">
+      <span class="brand-text">TARAKONA<small>INDUSTRIES</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="visions.html" class="active">Visions</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</nav>
+
+<div class="vision-hero">
+  <span class="eyebrow" style="font-family:'Space Grotesk',sans-serif;">Tarakona Industries</span>
+  <h1>Where this is all growing</h1>
+  <p>Rooted in how we build, growing through what's already alive, reaching toward what's still just a bud.</p>
+</div>
+
+<div class="tree-wrap">
+  <svg class="trunk-svg" width="16" height="760" viewBox="0 0 16 760" preserveAspectRatio="none">
+    <polygon points="6,0 10,0 8.8,760 7.2,760" fill="#3a5f5a"/>
+    <polygon points="6.5,0 9.5,0 8.5,760 7.5,760" fill="#6bc9bd" opacity="0.35"/>
+  </svg>
+
+  <div class="section foundation">
+    <div class="root-card">
+      <div class="tag">Root Principle</div>
+      <h3>How We Build</h3>
+      <p>No-AI Art Policy — every illustration, icon, and piece of visual art across our products is made by real people. No exceptions.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="branch-label motion-label">In Motion</div>
+    <div class="motion-branches">
+      <div class="motion-node">
+        <svg class="connector" width="140" height="50" viewBox="0 0 140 50"><path d="M70 0 C70 22, 25 22, 25 50" stroke="#3a5f5a" stroke-width="3" fill="none"/></svg>
+        <div class="node-card">
+          <div class="node-status"><span class="status-dot"></span>In testing</div>
+          <h3>Scoop Watch</h3>
+          <p>A litter box reminder that won't let you swipe it away and forget.</p>
+        </div>
+      </div>
+      <div class="motion-node">
+        <svg class="connector" width="140" height="50" viewBox="0 0 140 50"><path d="M70 0 C70 22, 115 22, 115 50" stroke="#3a5f5a" stroke-width="3" fill="none"/></svg>
+        <div class="node-card">
+          <div class="node-status"><span class="status-dot"></span>Soon</div>
+          <h3>Effien</h3>
+          <p>A companion app for sharing your pets' best moments with people who'll appreciate them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="branch-label budding-label">Just Budding</div>
+    <div class="budding-branches">
+      <div class="bud-node">
+        <svg class="connector" width="90" height="32" viewBox="0 0 90 32"><path d="M45 0 C45 14, 18 14, 18 32" stroke="#8fa39d" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+        <div class="bud-card">
+          <div class="bud-status"><span class="bud-dot"></span>Just an idea</div>
+          <h3>Tank Watch</h3>
+          <p>Water changes and filter cycles, kept on schedule.</p>
+        </div>
+      </div>
+      <div class="bud-node">
+        <svg class="connector" width="90" height="32" viewBox="0 0 90 32"><path d="M45 0 C45 14, 72 14, 72 32" stroke="#8fa39d" stroke-width="1.5" fill="none" opacity="0.6"/></svg>
+        <div class="bud-card">
+          <div class="bud-status"><span class="bud-dot"></span>Just an idea</div>
+          <h3>Woof Watch</h3>
+          <p>Walks, feedings, and meds — the same watchful approach for dogs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">
+      <img src="assets/wing-flame-icon.png" alt="">
+      © 2026 Tarakona Industries LLC
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="mailto:rojo@tarakonaindustries.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
