@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js");</script>
 <style>
   :root {
     --obsidian: #0d1416;
@@ -74,6 +75,63 @@
     .foundation-connector, .motion-connector, .budding-connector, .trunk-svg { display: none; }
     .root-card, .motion-node, .bud-node { width: 100%; max-width: 340px; }
   }
+
+  /* ---------- Visions tabs ---------- */
+  .vision-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 0 auto 34px; padding: 0 20px; }
+  .vision-tab { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 0.92rem; padding: 10px 20px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); text-decoration: none; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+  .vision-tab:hover { color: var(--bronze-bright); border-color: var(--border-strong); }
+  .vision-tab.is-active { color: #0d1416; background: var(--bronze); border-color: var(--bronze); }
+  .js .tab-panel { display: none; }
+  .js .tab-panel.is-active { display: block; }
+  .panel-wrap { max-width: 900px; margin: 0 auto; padding: 50px 28px 90px; }
+  .panel-wrap h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.6rem, 3vw, 2.1rem); text-align: center; }
+  .panel-lede { color: var(--muted); max-width: 56ch; margin: 16px auto 0; text-align: center; font-size: 1rem; }
+
+  /* Featured artists */
+  .promise-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 36px 0 44px; }
+  .promise { background: var(--panel); border: 1px solid var(--border-strong); border-radius: 16px; padding: 20px 22px; display: flex; gap: 14px; align-items: flex-start; }
+  .promise svg { flex-shrink: 0; margin-top: 3px; }
+  .promise h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; margin-bottom: 4px; }
+  .promise p { font-size: 0.86rem; color: var(--muted); margin: 0; line-height: 1.5; }
+  .artist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+  .artist-card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .artist-card .artist-avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; background: var(--panel); border: 1px solid var(--border); }
+  .artist-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; }
+  .artist-card .artist-work { font-size: 0.86rem; color: var(--muted); line-height: 1.5; margin: 0; }
+  .artist-card .artist-links { margin-top: auto; font-size: 0.82rem; }
+  .artist-card .artist-links a { color: var(--bronze-bright); margin-right: 14px; }
+  .artist-card.placeholder { background: transparent; border-style: dashed; border-color: var(--border-strong); align-items: center; justify-content: center; text-align: center; min-height: 200px; color: var(--muted); font-size: 0.92rem; }
+
+  /* AI art replacement */
+  .progress-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; margin: 36px 0 10px; }
+  .progress-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .progress-head strong { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; }
+  .progress-head span { font-size: 0.85rem; color: var(--bronze-bright); font-weight: 600; }
+  .blocks { display: flex; gap: 6px; }
+  .block { flex: 1; height: 14px; border-radius: 4px; background: var(--obsidian); border: 1px solid var(--border); }
+  .block.filled { background: var(--bronze); border-color: var(--bronze); }
+  .swap-group-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze-bright); font-weight: 600; margin: 44px 0 18px; }
+  .swap-item { margin-bottom: 34px; }
+  .swap-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .swap-title h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; }
+  .swap-title span { font-size: 0.8rem; color: var(--muted); }
+  .swap-row { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; gap: 12px; }
+  .art-box { position: relative; min-height: 200px; border-radius: 16px; display: flex; align-items: center; justify-content: center; padding: 38px 18px 18px; margin: 0; }
+  .art-box.ai { background: var(--panel-2); border: 1px solid var(--border); }
+  .art-box.human { background: transparent; border: 1px dashed var(--border-strong); }
+  .art-box img { max-width: 100%; max-height: 150px; object-fit: contain; }
+  .art-label { position: absolute; top: 12px; left: 14px; font-family: 'Space Grotesk', sans-serif; font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+  .art-box.human .art-label { color: var(--bronze-bright); }
+  .coming-soon { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1rem; color: var(--muted); text-align: center; }
+  .art-credit { position: absolute; bottom: 12px; left: 14px; right: 14px; font-size: 0.78rem; color: var(--muted); text-align: center; }
+  .art-credit a { color: var(--bronze-bright); }
+  .swap-arrow { display: flex; justify-content: center; }
+  .note-card { background: var(--panel); border: 1px dashed var(--border-strong); border-radius: 16px; padding: 26px; text-align: center; color: var(--muted); font-size: 0.92rem; }
+
+  @media (max-width: 720px) {
+    .swap-row { grid-template-columns: 1fr; }
+    .swap-arrow { transform: rotate(90deg); height: 40px; align-items: center; }
+  }
 </style>
 </head>
 <body>
@@ -98,7 +156,15 @@
   <p>Rooted in Building For The Future and Planning Ahead of Growth</p>
 </div>
 
+<nav class="vision-tabs" role="tablist" aria-label="Visions sections">
+  <a class="vision-tab is-active" data-tab="tree" href="#tree" role="tab" aria-selected="true">The Tree</a>
+  <a class="vision-tab" data-tab="artists" href="#artists" role="tab" aria-selected="false">Featured Artists</a>
+  <a class="vision-tab" data-tab="ai-art" href="#ai-art" role="tab" aria-selected="false">AI Art Replacement</a>
+</nav>
+
 <hr class="hero-divider">
+
+<section id="panel-tree" class="tab-panel is-active">
 
 <div class="tree-wrap">
   <svg class="trunk-svg" width="16" height="700" viewBox="0 0 16 700" preserveAspectRatio="none">
@@ -182,6 +248,126 @@
   </div>
 
 </div>
+
+</section>
+
+<section id="panel-artists" class="tab-panel" role="tabpanel">
+  <div class="panel-wrap">
+    <h2>Featured Artists</h2>
+    <p class="panel-lede">The people behind the art deserve to be seen. Every artist featured here is featured free of charge, and Tarakona pays for every commission.</p>
+
+    <div class="promise-row">
+      <div class="promise">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6bc9bd" stroke-width="2"/><path d="M7.5 12.5l3 3 6-7" stroke="#6bc9bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><h3>Free of charge</h3><p>Artists pay nothing to be featured here.</p></div>
+      </div>
+      <div class="promise">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#6bc9bd" stroke-width="2"/><path d="M7.5 12.5l3 3 6-7" stroke="#6bc9bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><h3>Commissions paid by Tarakona</h3><p>We cover the cost of every commission.</p></div>
+      </div>
+    </div>
+
+    <div class="artist-grid">
+      <!-- ARTIST CARD TEMPLATE: copy this block, fill it in, and paste it above the placeholder.
+      <div class="artist-card">
+        <img class="artist-avatar" src="assets/artists/NAME.jpg" alt="Artist name">
+        <h3>Artist Name</h3>
+        <p class="artist-work">What they made, and where it appears (for example: the Scoop Watch app icon).</p>
+        <div class="artist-links"><a href="https://example.com">Portfolio</a><a href="https://example.com">Instagram</a></div>
+      </div>
+      -->
+      <div class="artist-card placeholder">Artists will appear here as their work is completed.</div>
+    </div>
+  </div>
+</section>
+
+<section id="panel-ai-art" class="tab-panel" role="tabpanel">
+  <div class="panel-wrap">
+    <h2>AI Art Replacement Progress</h2>
+    <p class="panel-lede">A little AI art was used while prototyping and for a few foundational pieces. Each row below shows the original on the left and the human-made art that will replace it on the right.</p>
+
+    <div class="progress-card">
+      <div class="progress-head"><strong>Pieces replaced with human-made art</strong><span id="progress-count">0 of 3 replaced</span></div>
+      <div class="blocks" id="progress-blocks"><div class="block"></div><div class="block"></div><div class="block"></div></div>
+    </div>
+
+    <div class="swap-group-title">Tarakona Website</div>
+
+    <div class="swap-item" data-status="pending">
+      <div class="swap-title"><h3>Wing and flame logo</h3><span>Nav bar, footer, favicon</span></div>
+      <div class="swap-row">
+        <figure class="art-box ai"><span class="art-label">AI-made</span><img src="assets/wing-flame-icon.png" alt="AI-made wing and flame logo"></figure>
+        <div class="swap-arrow"><svg width="52" height="24" viewBox="0 0 52 24" fill="none" aria-hidden="true"><path d="M2 12 H46" stroke="#6bc9bd" stroke-width="3" stroke-linecap="round"/><path d="M38 4 L47 12 L38 20" stroke="#6bc9bd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="art-box human"><span class="art-label">Human-made</span><div class="coming-soon">Coming Soon</div></div>
+      </div>
+    </div>
+    <div class="swap-item" data-status="pending">
+      <div class="swap-title"><h3>Dragon illustration</h3><span>Brand mark</span></div>
+      <div class="swap-row">
+        <figure class="art-box ai"><span class="art-label">AI-made</span><img src="assets/dragon-logo.png" alt="AI-made dragon illustration"></figure>
+        <div class="swap-arrow"><svg width="52" height="24" viewBox="0 0 52 24" fill="none" aria-hidden="true"><path d="M2 12 H46" stroke="#6bc9bd" stroke-width="3" stroke-linecap="round"/><path d="M38 4 L47 12 L38 20" stroke="#6bc9bd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="art-box human"><span class="art-label">Human-made</span><div class="coming-soon">Coming Soon</div></div>
+      </div>
+    </div>
+    <div class="swap-item" data-status="pending">
+      <div class="swap-title"><h3>Dragon flight banner</h3><span>Homepage banner</span></div>
+      <div class="swap-row">
+        <figure class="art-box ai"><span class="art-label">AI-made</span><img src="assets/dragon-flight-banner.png" alt="Dragon flight banner built from AI-made dragons"></figure>
+        <div class="swap-arrow"><svg width="52" height="24" viewBox="0 0 52 24" fill="none" aria-hidden="true"><path d="M2 12 H46" stroke="#6bc9bd" stroke-width="3" stroke-linecap="round"/><path d="M38 4 L47 12 L38 20" stroke="#6bc9bd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="art-box human"><span class="art-label">Human-made</span><div class="coming-soon">Coming Soon</div></div>
+      </div>
+    </div>
+
+    <div class="swap-group-title">Scoop Watch App</div>
+    <!-- SWAP ITEM TEMPLATE: copy a .swap-item block from above for each app piece.
+         Swap the <img> for your screenshot. When a human-made piece is finished, set data-status="done",
+         remove the .coming-soon div, and put the new art inside the human box, plus:
+         <div class="art-credit">Art by <a href="#artists">Artist Name</a></div> -->
+    <div class="note-card">The pieces of AI art in the Scoop Watch app are being catalogued and will appear here.</div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.vision-tab'));
+  var panels = {};
+  tabs.forEach(function (t) { panels[t.getAttribute('data-tab')] = document.getElementById('panel-' + t.getAttribute('data-tab')); });
+  function show(name) {
+    if (!panels[name]) name = 'tree';
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-tab') === name;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Object.keys(panels).forEach(function (k) { panels[k].classList.toggle('is-active', k === name); });
+  }
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function (e) {
+      e.preventDefault();
+      var name = t.getAttribute('data-tab');
+      show(name);
+      if (history.replaceState) history.replaceState(null, '', '#' + name);
+    });
+  });
+  window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
+  show(location.hash.slice(1));
+
+  // Progress meter: counts every .swap-item, filled when data-status="done"
+  var items = [].slice.call(document.querySelectorAll('.swap-item'));
+  var done = items.filter(function (i) { return i.getAttribute('data-status') === 'done'; }).length;
+  var blocks = document.getElementById('progress-blocks');
+  var count = document.getElementById('progress-count');
+  if (blocks && count && items.length) {
+    blocks.innerHTML = '';
+    items.forEach(function (i, idx) {
+      var b = document.createElement('div');
+      b.className = 'block' + (idx < done ? ' filled' : '');
+      blocks.appendChild(b);
+    });
+    count.textContent = done + ' of ' + items.length + ' replaced';
+  }
+})();
+</script>
 
 <footer>
   <div class="wrap">
