@@ -133,6 +133,7 @@
     .swap-arrow { transform: rotate(90deg); height: 40px; align-items: center; }
   }
 </style>
+<script src="nav.js" defer></script>
 </head>
 <body>
 
@@ -146,8 +147,14 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="visions.html" class="active">Visions</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
+      <div class="nav-more">
+        <button type="button" class="nav-more-btn" aria-expanded="false" aria-haspopup="true">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dropdown">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -380,6 +387,7 @@
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
       <a href="mailto:rojo@tarakonaindustries.com">Contact</a>
     </div>
   </div>

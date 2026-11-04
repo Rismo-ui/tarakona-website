@@ -282,3 +282,38 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { font-size: 0.8rem; color: var(--muted); transition: color 0.2s ease; }
 .footer-links a:hover { color: var(--bronze-bright); }
+
+/* ---------- Nav dropdown ("More") ---------- */
+.nav-more { position: relative; }
+.nav-more-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); background: none; border: 0; border-bottom: 2px solid transparent;
+  padding: 6px 0; cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.nav-more-btn svg { transition: transform 0.2s ease; }
+.nav-more-btn:hover, .nav-more.open .nav-more-btn, .nav-more.has-active .nav-more-btn { color: var(--bronze-bright); }
+.nav-more.has-active .nav-more-btn { border-color: var(--bronze); }
+.nav-more.open .nav-more-btn svg { transform: rotate(180deg); }
+.nav-dropdown {
+  display: none; position: absolute; top: calc(100% + 8px); right: -14px; min-width: 176px; z-index: 60;
+  padding: 8px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+}
+.nav-dropdown::before { content: ""; position: absolute; top: -10px; left: 0; right: 0; height: 10px; } /* hover bridge */
+.nav-more.open .nav-dropdown { display: block; }
+@media (hover: hover) and (min-width: 761px) { .nav-more:hover .nav-dropdown { display: block; } }
+.nav-links .nav-dropdown a { display: block; padding: 10px 14px; border-bottom: 0; border-radius: 8px; font-size: 0.78rem; white-space: nowrap; }
+.nav-links .nav-dropdown a:hover { background: var(--panel-2); }
+.nav-links .nav-dropdown a.active { background: var(--panel-2); color: var(--bronze-bright); }
+
+@media (max-width: 760px) {
+  .nav-more { width: 100%; }
+  .nav-more-btn { width: 100%; padding: 16px 28px; border-bottom: 1px solid var(--border); pointer-events: none; }
+  .nav-more.has-active .nav-more-btn { border-color: var(--border); }
+  .nav-more-btn svg { display: none; }
+  .nav-dropdown { display: block; position: static; min-width: 0; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
+  .nav-dropdown::before { display: none; }
+  .nav-links .nav-dropdown a { padding: 14px 28px 14px 48px; border-bottom: 1px solid var(--border); border-radius: 0; width: 100%; }
+}

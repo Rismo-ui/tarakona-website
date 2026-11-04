@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use — Scoop Watch</title>
+<title>Terms of Use | Scoop Watch</title>
 <meta name="description" content="Terms of Use for Scoop Watch, developed by Tarakona Industries LLC.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="nav.js" defer></script>
 </head>
 <body>
 
@@ -22,8 +23,14 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="visions.html">Visions</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html" class="active">Terms</a>
+      <div class="nav-more has-active">
+        <button type="button" class="nav-more-btn" aria-expanded="false" aria-haspopup="true">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-dropdown">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html" class="active">Terms</a>
+          <a href="support.html">Support</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -57,7 +64,7 @@
   </ul>
 
   <h2>5. Optional Donations</h2>
-  <p>The App may include an optional link to a third-party page, currently Buy Me a Coffee, where you can choose to make a voluntary donation to support development. A donation is completely optional, is not a subscription, and does not unlock any feature or give you Scoop Watch+. The free App works the same whether or not you donate. Donations are handled by that third-party service under its own terms and privacy policy, not by Apple or the App Store. We cannot process refunds for donations ourselves, so any refund question should be directed to that service.</p>
+  <p>The App may include an optional link to a third-party page, currently Buy Me a Coffee, where you can choose to make a voluntary donation to support development. A donation is completely optional, is not a subscription, and does not unlock any feature or give you Scoop Watch+. The free App works the same whether or not you donate. Donations are not charitable contributions and are not tax-deductible, because Tarakona Industries is a for-profit company and not a charity. Donations are handled by that third-party service under its own terms and privacy policy, not by Apple or the App Store. We cannot process refunds for donations ourselves, so any refund question should be directed to that service.</p>
 
   <h2>6. Reminders Are a Convenience, Not a Guarantee</h2>
   <p>Scoop Watch reminders are scheduled on your device and delivered by your device's operating system. Delivery can be delayed, limited, or blocked by things outside our control, including notification permissions, Focus or Do Not Disturb modes, Low Power Mode, device restarts, operating system limits on the number of scheduled notifications, and software updates. You are responsible for caring for your pets and for checking that notifications are working on your device. Scoop Watch is not a substitute for your own attention to your pets, and it does not provide veterinary or medical advice.</p>
@@ -75,7 +82,8 @@
   <p>To the fullest extent permitted by law, Tarakona Industries will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss arising from missed, delayed, or undelivered reminders. Our total liability for any claim relating to the App will not exceed the amount you paid us for the App through your subscription in the twelve months before the claim arose. Some jurisdictions do not allow certain limitations, so parts of this section may not apply to you, and nothing in these Terms limits any rights you have under applicable law that cannot be limited.</p>
 
   <h2>11. Contact Us</h2>
-  <p>If you have questions about these Terms, you can reach us at: support@tarakonaindustries.com</p>
+  <p>If you have questions about these Terms, you can reach us at: rojo@tarakonaindustries.com</p>
+  <p>Tarakona Industries LLC<br>138 Inspiration Ave, Apt. 4311, Bluffton, SC 29910</p>
 
   <h2>12. Governing Law</h2>
   <p>These Terms are governed by the laws of the State of South Carolina, United States, without regard to its conflict-of-law rules. Any dispute relating to these Terms or the App will be brought in the state or federal courts located in South Carolina, except where the law of your place of residence requires otherwise.</p>
@@ -90,7 +98,8 @@
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy</a>
-      <a href="mailto:support@tarakonaindustries.com">Contact</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:rojo@tarakonaindustries.com">Contact</a>
     </div>
   </div>
 </footer>
